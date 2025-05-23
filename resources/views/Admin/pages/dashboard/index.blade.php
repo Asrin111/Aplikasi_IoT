@@ -64,7 +64,7 @@
                 <tbody>
                     @forelse($logs as $log)
                     <tr>
-                        <td>{{ $log->logged_at }}</td>
+                        <td>{{ $log->created_at }}</td>
                         <td>{{ number_format($log->suhu, 1) }}</td>
                         <td>{{ number_format($log->kelembapan, 1) }}</td>
                         <td>{{ number_format($log->moisture, 1) }}</td>
