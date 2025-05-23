@@ -11,8 +11,5 @@ Route::get('/', function () {
 //dashboard
 Route::get('/dashboard', [DashboardController::class, 'IndexPage'])->name('dashboard');
 
-//hapus project di dashboard
-Route::delete('/project/{id}', [ProjectController::class, 'destroy'])->name('project.delete');
-
 // Route untuk melihat detail project
-Route::get('/project/{id}', [ProjectController::class, 'detail'])->name('project.detail');
+// Route::get('/project/1', [ProjectController::class, 'detail'])->name('project.detail');

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('sensor_logs', function (Blueprint $table) {
     $table->id();
-    $table->string('device_id')->nullable();
     $table->float('suhu')->nullable();
     $table->float('kelembapan')->nullable();
     $table->integer('moisture')->nullable();

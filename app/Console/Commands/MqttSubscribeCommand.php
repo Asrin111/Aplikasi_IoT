@@ -15,7 +15,7 @@ class MqttSubscribeCommand extends Command
 
     public function handle()
     {
-        $server = '10.2.22.74'; // IP Mosquitto broker
+        $server = '10.2.3.50';
         $port = 1883;
         $clientId = 'subscriber-local-' . uniqid();
 
@@ -31,11 +31,11 @@ class MqttSubscribeCommand extends Command
 
         $this->info('✅ Terhubung ke Mosquitto Broker!');
 
-        $topic = 'esp32/sensor/TUNGTUNGTUNGSAHUR';
+        $topic = 'iot/x9d2ab/Plants/PlantsVirtu972i1';
 
         $mqtt->subscribe($topic, function (string $topic, string $message) {
-            $this->info("📥 Topik: $topic | Pesan: $message");
 
+            $this->info("📥 Topik: $topic | Pesan: $message");
             $data = json_decode($message, true);
 
             if (!is_array($data)) {
@@ -44,7 +44,6 @@ class MqttSubscribeCommand extends Command
             }
 
             SensorLog::create([
-                'device_id'  => 'esp32-01',
                 'suhu'       => $data['suhu'] ?? null,
                 'kelembapan' => $data['kelembapan'] ?? null,
                 'moisture'   => $data['moisture'] ?? null,
